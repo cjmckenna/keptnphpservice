@@ -1,0 +1,16 @@
+apiVersion: spec.keptn.sh/0.2.3
+kind: "Shipyard"
+metadata:
+  name: "keptnphpdemo"
+spec:
+  stages:
+    - name: "production"
+      sequences:
+      - name: "delivery"
+        triggeredOn:
+          - event: "dev.delivery.finished"
+        tasks: 
+        - name: "deployment"
+          properties:
+            deploymentstrategy: "blue_green_service"
+        - name: "release"
