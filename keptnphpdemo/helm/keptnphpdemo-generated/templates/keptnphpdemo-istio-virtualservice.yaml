@@ -14,6 +14,6 @@ spec:
   - route:
     - destination:
         host: keptnphpdemo-canary.keptnphpdemo-production.svc.cluster.local
+      weight: 100
     - destination:
         host: keptnphpdemo-primary.keptnphpdemo-production.svc.cluster.local
-      weight: 100
