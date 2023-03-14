@@ -1,0 +1,7 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  creationTimestamp: null
+  name: keptnphpdemo-primary
+spec:
+  host: keptnphpdemo-primary.keptnphpdemo-production.svc.cluster.local

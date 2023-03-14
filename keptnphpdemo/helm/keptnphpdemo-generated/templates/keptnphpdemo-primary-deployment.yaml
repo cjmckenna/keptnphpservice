@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: keptnphpdemo
+  name: keptnphpdemo-primary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keptnphpdemo-primary
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: keptnphpdemo-primary
+    spec:
+      containers:
+      - image: core.harbor.domain/keptnphpdemo/keptnphpdemo:1.0
+        imagePullPolicy: Always
+        name: keptnphpdemo
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 50m
+            memory: 50Mi
+          requests:
+            cpu: 25m
+            memory: 25Mi
+status: {}
