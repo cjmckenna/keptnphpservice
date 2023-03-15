@@ -18,7 +18,11 @@ spec:
         app: keptnphpdemo-primary
     spec:
       containers:
-      - image: core.harbor.domain/keptnphpdemo/keptnphpdemo:1.0
+      - env:
+        - name: DT_CUSTOM_PROP
+          value: keptn_project=keptnphpdemo keptn_service=keptnphpdemo keptn_stage=production
+            keptn_deployment=primary
+        image: core.harbor.domain/keptnphpdemo/keptnphpdemo:1.0
         imagePullPolicy: Always
         name: keptnphpdemo
         ports:
