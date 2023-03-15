@@ -1,4 +1,4 @@
---- 
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -11,7 +11,7 @@ spec:
     matchLabels:
       app: keptnphpdemo
   template:
-    metadata: 
+    metadata:
       labels:
         app: keptnphpdemo
     spec:
@@ -19,6 +19,9 @@ spec:
       - image: "{{ .Values.image }}"
         imagePullPolicy: Always
         name: keptnphpdemo
+        env:
+          - name: DT_CUSTOM_PROP
+            value: "keptn_project={{ .Values.keptn.project }} keptn_service={{ .Values.keptn.service }} keptn_stage={{ .Values.keptn.stage }} keptn_deployment={{ .Values.keptn.deployment }}"
         ports:
         - containerPort: 80
         resources:
